@@ -176,5 +176,5 @@ if __name__ == "__main__":
     start = time.time()
     main(sys.argv[1:])
     end = time.time()
-    run = start - end
+    run = end - start
     runtime(run)
