@@ -26,7 +26,7 @@ class MultiCellNetEnv(MultiAgentEnv):
     # w_delay_cats = np.array(config.delayAppWeights)
     # w_drop = config.dropRatioWeight
     # w_delay = config.delayWeight
-    # w_pc = config.pcWeight
+    w_pc = config.pcWeight
     w_qos = config.qosWeight
     w_xqos = config.extraQosWeight
     episode_time_len = config.episodeTimeLen
@@ -47,7 +47,7 @@ class MultiCellNetEnv(MultiAgentEnv):
         no_offload=False,
         max_sleep=3,
         dpi_sample_rate=None,
-        # w_pc=w_pc,
+        w_pc=w_pc,
         w_qos=w_qos,
         w_xqos=w_xqos,
         # w_drop=w_drop,
@@ -136,7 +136,7 @@ class MultiCellNetEnv(MultiAgentEnv):
         pc_kw = pc * 1e-3
         n = n_done + n_drop + 1e-6
         r_qos = (-n_drop * q_drop + self.w_xqos * n_done * (1 - q_del)) / n
-        reward = self.w_qos * r_qos - pc_kw
+        reward = self.w_qos * r_qos - self.w_pc * pc_kw
         # dropped = dr @ self.w_drop_cats
         # delay = dl @ self.w_delay_cats
         # reward = -(self.w_drop * dropped + self.w_pc * pc + self.w_delay * delay)
