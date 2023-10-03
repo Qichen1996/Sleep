@@ -64,5 +64,5 @@ private_obs_keys = ['next_sleep_mode', 'wakeup_time',
                     *[f'{k}{i}' for i in range(-bufferNumChunks, 0) for k in hist_stats_keys],
                     *[f'{u}_{k}' for u in ue_groups for k in ue_stats_keys]]
 mutual_obs_keys = ['dist', *ue_stats_keys]
-other_obs_keys = [f'nb{i}_{k}' for i in range(numBS - 1) for k in public_obs_keys + mutual_obs_keys]
+other_obs_keys = [f'nb{i}_{k}' for i in range(6) for k in public_obs_keys + mutual_obs_keys]
 all_obs_keys = public_obs_keys + private_obs_keys + other_obs_keys
