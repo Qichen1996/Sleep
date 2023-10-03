@@ -82,7 +82,7 @@ class MultiCellNetEnv(MultiAgentEnv):
         self.action_space = [MultiDiscrete(BaseStation.action_dims)
                              for _ in range(self.num_agents)]
 
-        # self.w_pc = w_pc
+        self.w_pc = w_pc
         self.w_qos = w_qos
         self.w_xqos = w_xqos
         # self.w_drop = w_drop
